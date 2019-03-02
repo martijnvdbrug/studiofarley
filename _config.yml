@@ -1,5 +1,5 @@
 url: https://studiofarley.com
-baseurl: /dingen/
+baseurl: /
 
 # Site settings
 title: Studio Farley
@@ -9,3 +9,6 @@ description: "Creative design with strategy by Studio Farley."
 # Build settings
 markdown: kramdown
 permalink: pretty
+
+sass:
+    style: compressed

@@ -1,27 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
   {% include head.html %}
 
-
-    <body id="page-top" class="index">
+  <body>
 
     {% include header.html %}
 
-    {% comment %}
-
-    {% include services.html %}
-    {% include portfolio_grid.html %}
-    {% include about.html %}
-    {% include team.html %}
-    {% include clients.html %}
-    {% include contact.html %}
+    <main>
+        {{ content }}
+    </main>
+    
     {% include footer.html %}
-    {% include modals.html %}
+      
+    {% include script.html %}
 
-    {% endcomment %}
+  </body>
 
-    {% include js.html %}
-
-    </body>
 </html>

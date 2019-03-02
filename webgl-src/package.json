@@ -1,0 +1,26 @@
+{
+  "name": "webgl-experiments",
+  "version": "1.0.0",
+  "description": "WebGL experiments",
+  "scripts": {
+    "dev-server": "yarn webpack-dev-server --hot",
+    "build": "yarn webpack -w",
+    "serve": "concurrently --kill-others \"yarn build\" \"yarn dev-server\""
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/webfontloader": "^1.6.29",
+    "concurrently": "^4.1.0",
+    "ts-loader": "^4.0.0",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.3",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "@pixi/filter-glitch": "^2.7.0",
+    "pixi.js": "^5.0.0-rc.2",
+    "webfontloader": "^1.6.28"
+  }
+}
