@@ -8,7 +8,7 @@ export class Background extends PIXI.Sprite {
     this.height = window.innerHeight;
     this.width = window.innerWidth;
     this.tint = 0x0000000;
-    const filter = new WaveFilter([234, 96, 96], [113, 23, 234]);
-    this.filters = [filter];
+/*    const filter = new WaveFilter([234, 96, 96], [113, 23, 234]);
+    this.filters = [filter];*/
   }
 }

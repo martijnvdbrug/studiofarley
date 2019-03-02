@@ -15,13 +15,13 @@ export class Main {
   app;
 
   constructor() {
-    canvasWidth = document.getElementById('header').clientWidth;
-    canvasHeight = document.getElementById('header').clientHeight;
+    canvasWidth = document.getElementById('parallax').clientWidth;
+    canvasHeight = document.getElementById('parallax').clientHeight;
     // this.stage = new PIXI.Container();
     this.app = new PIXI.Application({
       width: canvasWidth,
       height: canvasHeight,
-      view: document.getElementById('banner-canvas') as HTMLCanvasElement,
+      view: document.getElementById('canvas') as HTMLCanvasElement,
       backgroundColor: 0xffffff
     });
     this.stage = this.app.stage;
