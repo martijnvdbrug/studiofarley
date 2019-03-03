@@ -31,7 +31,7 @@ export class Main {
       AssetUtil.loadFonts(fonts)
     ]).then(() => {
       this.makeStage();
-      PIXI.Ticker.shared.add((time) => {
+      PIXI.ticker.shared.add((time) => {
         this.update(time);
       });
     }).catch(err => {

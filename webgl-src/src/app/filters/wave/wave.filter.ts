@@ -1,6 +1,6 @@
 import PIXI = require('pixi.js');
 
-export class WaveFilter extends PIXI.Filter {
+export class WaveFilter extends PIXI.Filter<{}> {
 
   constructor(color1: [number, number, number], color2: [number, number, number]) {
     const rgb1 = `${color1[0]/255},${color1[1]/255},${color1[2]/255},1.0`;

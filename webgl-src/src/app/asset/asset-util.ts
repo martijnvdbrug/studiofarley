@@ -5,7 +5,7 @@ import WebFont = require('webfontloader');
 export class AssetUtil {
 
   static async loadAssets(fromAssets: typeof assets): Promise<void> {
-    const loader = PIXI.Loader.shared;
+    const loader = PIXI.loader;
     return new Promise((resolve, reject) => {
       Object.keys(fromAssets).forEach(assetName => {
         const asset = fromAssets[assetName];
@@ -18,7 +18,7 @@ export class AssetUtil {
       loader.on('error', err => {
         reject(`Error loading sprites`);
       });
-      PIXI.Loader.shared.load();
+      loader.load();
     });
   }
 

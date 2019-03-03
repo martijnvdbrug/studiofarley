@@ -9,6 +9,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/pixi.js": "^4.8.6",
     "@types/webfontloader": "^1.6.29",
     "concurrently": "^4.1.0",
     "ts-loader": "^4.0.0",
@@ -20,7 +21,7 @@
   },
   "dependencies": {
     "@pixi/filter-glitch": "^2.7.0",
-    "pixi.js": "^5.0.0-rc.2",
+    "pixi.js": "^4.8.6",
     "webfontloader": "^1.6.28"
   }
 }
