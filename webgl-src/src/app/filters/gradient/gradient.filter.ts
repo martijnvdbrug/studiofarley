@@ -1,13 +1,8 @@
-import fragment from './gradient.frag';
-
 export class GradientFilter extends PIXI.Filter<{}> {
 
   constructor(color1: [number, number, number], color2: [number, number, number]) {
-
-    console.log('fragment', fragment);
-
-    const rgb1 = `${color1[0]/255},${color1[1]/255},${color1[2]/255},1.0`;
-    const rgb2 = `${color2[0]/255},${color2[1]/255},${color2[2]/255},1.0`;
+    const rgb1 = `${color1[0] / 255},${color1[1] / 255},${color1[2] / 255},1.0`;
+    const rgb2 = `${color2[0] / 255},${color2[1] / 255},${color2[2] / 255},1.0`;
     super(null, `
 precision mediump float;
 

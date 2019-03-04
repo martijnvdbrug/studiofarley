@@ -3,8 +3,11 @@ baseurl: /
 
 # Site settings
 title: Studio Farley
-email: james@studiofarley.com
 description: "Creative design with strategy by Studio Farley."
+
+email: james@studiofarley.com
+phone: +31 6 54303707
+website: www.studiofarley.com
 
 # Build settings
 markdown: kramdown

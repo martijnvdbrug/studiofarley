@@ -1,18 +1,16 @@
 import PIXI = require('pixi.js');
-import {assets} from './asset/assets';
+import Container = PIXI.Container;
 import {AssetUtil} from './asset/asset-util';
 import {Background} from './components/background';
 import {LogoText} from './components/logo-text';
-import {fonts} from './asset/fonts';
-import Container = PIXI.Container;
 
 export let canvasWidth: number;
 export let canvasHeight: number;
 
 export class Main {
 
-  private readonly stage: Container;
   app;
+  private readonly stage: Container;
 
   constructor() {
     canvasWidth = document.getElementById('parallax').clientWidth;
@@ -27,8 +25,8 @@ export class Main {
     this.stage = this.app.stage;
     console.log(`Using screenheight ${canvasHeight} and screenwidth ${canvasWidth}`);
     Promise.all([
-      AssetUtil.loadAssets(assets),
-      AssetUtil.loadFonts(fonts)
+      AssetUtil.loadAssets(),
+      AssetUtil.loadFonts()
     ]).then(() => {
       this.makeStage();
       PIXI.ticker.shared.add((time) => {
@@ -40,7 +38,7 @@ export class Main {
   }
 
   makeStage() {
-    const background = new Background();
+    const background = new Background(AssetUtil.assets.background.id);
     const farley = new LogoText('STUDIO\nFARLEY');
     this.stage.addChild(background);
     this.stage.addChild(farley);

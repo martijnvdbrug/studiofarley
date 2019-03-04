@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "WebGL experiments",
   "scripts": {
-    "dev-server": "yarn webpack-dev-server --hot",
-    "build": "yarn webpack -w",
+    "build": "yarn webpack -w --config=webpack.dev.js",
+    "build:production": "yarn webpack --config=webpack.prod.js",
     "serve": "concurrently --kill-others \"yarn build\" \"yarn dev-server\""
   },
   "license": "MIT",
@@ -12,15 +12,16 @@
     "@types/pixi.js": "^4.8.6",
     "@types/webfontloader": "^1.6.29",
     "concurrently": "^4.1.0",
+    "glslify": "^7.0.0",
     "ts-loader": "^4.0.0",
     "tslint": "^5.12.1",
     "typescript": "^3.3.3",
     "webpack": "^4.29.3",
-    "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.1.14"
+    "webpack-cli": "^3.2.3"
   },
   "dependencies": {
     "@pixi/filter-glitch": "^2.7.0",
+    "@pixi/filter-rgb-split": "^2.7.0",
     "pixi.js": "^4.8.6",
     "webfontloader": "^1.6.28"
   }

@@ -1,4 +1,3 @@
-var path = require("path");
 
 module.exports = {
     mode: 'development',
@@ -16,12 +15,11 @@ module.exports = {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.frag$/,
+                loader: 'raw-loader'
             }
         ]
-    },
-    devServer: {
-        contentBase: path.join(__dirname, 'public'),
-        compress: true,
-        port: 9000
     }
 };

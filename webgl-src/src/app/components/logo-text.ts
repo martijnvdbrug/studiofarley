@@ -1,11 +1,13 @@
 import PIXI = require('pixi.js');
 import {GlitchFilter} from '@pixi/filter-glitch';
+import {RGBSplitFilter} from '@pixi/filter-rgb-split';
 import {canvasHeight, canvasWidth} from '../main';
 import Filter = PIXI.Filter;
 
 export class LogoText extends PIXI.Text {
 
   glitchFilter: Filter<{}>;
+  rgbFilter: Filter<{}>;
 
   constructor(text: string) {
     super(text, {
@@ -14,25 +16,31 @@ export class LogoText extends PIXI.Text {
       fill: 0xffffff,
     });
     this.glitchFilter = new GlitchFilter();
+    this.rgbFilter = new RGBSplitFilter();
     this.position.y = (canvasHeight - this.height) / 2;
     this.position.x = (canvasWidth - this.width) / 2;
     this.interactive = true;
     this.buttonMode = true;
     this
-        .on('mousedown', this.glitch)
-        .on('touchstart', this.glitch)
+        .on('mousedown', this.glitchOn)
+        .on('touchstart', this.glitchOn)
+        .on('mouseup', this.glitchOff)
+        .on('touchend', this.glitchOff)
         .on('mouseover', this.glitch);
   }
 
-  glitch(){
-    this.filters = [this.glitchFilter];
-    let counter = 0;
+  glitch() {
+    this.glitchOn();
     setTimeout(() => {
-        this.filters = [];
+        this.glitchOff()
     }, 200);
   }
 
-  glitchOff(time: number){
+  glitchOn() {
+    this.filters = [this.glitchFilter, this.rgbFilter];
+  }
+
+  glitchOff() {
     this.filters = null;
   }
 }
