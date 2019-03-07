@@ -1,12 +1,12 @@
-import * as PIXI from 'pixi.js';
-import {GradientFilter} from '../filters/gradient/gradient.filter';
-import {canvasHeight, canvasWidth} from '../main';
-import {AssetUtil} from '../asset/asset-util';
+import * as PIXI from "pixi.js";
+import {AssetUtil} from '../../asset/asset-util';
+import {canvasHeight, canvasWidth} from '../../main';
+import {GradientFilter} from '../../filters/gradient/gradient.filter';
+import Texture = PIXI.Texture;
 
 export class Background extends PIXI.Sprite {
 
-  constructor(image: string) {
-    const texture = PIXI.loader.resources[image].texture;
+  constructor(texture: Texture) {
     super(texture);
     const scale = AssetUtil.getScale(canvasWidth, texture.width, canvasHeight, texture.height);
     this.scale.y = scale;

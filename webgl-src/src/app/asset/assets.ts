@@ -8,6 +8,6 @@ export const mobile = {
 export const desktop = {
   background: {
     id: 'background',
-    path: '/assets/mobile-bg.jpg'
+    path: '/assets/celebrate-small.mp4'
   }
 };

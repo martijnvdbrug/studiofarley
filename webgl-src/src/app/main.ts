@@ -1,8 +1,11 @@
 import PIXI = require('pixi.js');
 import Container = PIXI.Container;
 import {AssetUtil} from './asset/asset-util';
-import {Background} from './components/background';
+import {MobileBackground} from './components/background/mobile-background';
 import {LogoText} from './components/logo-text';
+import {DesktopBackground} from './components/background/desktop-background';
+import {Helper} from './helper';
+import WebGLRenderer = PIXI.WebGLRenderer;
 
 export let canvasWidth: number;
 export let canvasHeight: number;
@@ -10,6 +13,7 @@ export let canvasHeight: number;
 export class Main {
 
   app;
+  renderer: PIXI.CanvasRenderer | WebGLRenderer;
   private readonly stage: Container;
 
   constructor() {
@@ -29,6 +33,7 @@ export class Main {
       AssetUtil.loadFonts()
     ]).then(() => {
       this.makeStage();
+      this.renderer = PIXI.autoDetectRenderer();
       PIXI.ticker.shared.add((time) => {
         this.update(time);
       });
@@ -38,7 +43,7 @@ export class Main {
   }
 
   makeStage() {
-    const background = new Background(AssetUtil.assets.background.id);
+    const background = Helper.isMobile() ? new MobileBackground() : new DesktopBackground();
     const farley = new LogoText('STUDIO\nFARLEY');
     this.stage.addChild(background);
     this.stage.addChild(farley);
@@ -46,7 +51,7 @@ export class Main {
   }
 
   update(time: number) {
-    // this.renderer.render(this.stage);
+    this.renderer.render(this.stage);
   }
 
 }
