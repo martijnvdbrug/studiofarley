@@ -4,7 +4,7 @@ import {AssetUtil} from './asset/asset-util';
 import {MobileBackground} from './components/background/mobile-background';
 import {LogoText} from './components/logo-text';
 import {DesktopBackground} from './components/background/desktop-background';
-import {Helper} from './helper';
+import {Helper} from './util/helper';
 import WebGLRenderer = PIXI.WebGLRenderer;
 
 export let canvasWidth: number;
@@ -24,7 +24,8 @@ export class Main {
       width: canvasWidth,
       height: canvasHeight,
       view: document.getElementById('canvas') as HTMLCanvasElement,
-      backgroundColor: 0xffffff
+      //backgroundColor: 0xffffff
+      transparent: true
     });
     this.stage = this.app.stage;
     console.log(`Using screenheight ${canvasHeight} and screenwidth ${canvasWidth}`);
@@ -38,20 +39,20 @@ export class Main {
         this.update(time);
       });
     }).catch(err => {
-      console.error(`Failed to load assets/fonts:`, err);
+      console.error(`Failed to load assets or fonts:`, err);
     });
   }
 
   makeStage() {
-    const background = Helper.isMobile() ? new MobileBackground() : new DesktopBackground();
     const farley = new LogoText('STUDIO\nFARLEY');
+    const background = Helper.isMobile() ? new MobileBackground() : new DesktopBackground();
     this.stage.addChild(background);
     this.stage.addChild(farley);
-    // this.renderer.render(this.stage);
   }
 
   update(time: number) {
     this.renderer.render(this.stage);
+    // requestAnimationFrame(this.update.bind(this));
   }
 
 }

@@ -2,7 +2,7 @@ import PIXI = require('pixi.js');
 import { desktop, mobile} from './assets';
 import WebFont = require('webfontloader');
 import {fonts} from './fonts';
-import {Helper} from '../helper';
+import {Helper} from '../util/helper';
 
 export class AssetUtil {
 
