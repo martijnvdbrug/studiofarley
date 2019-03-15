@@ -11,7 +11,7 @@ export class Background extends PIXI.Sprite {
     const scale = AssetUtil.getScale(canvasWidth, texture.width, canvasHeight, texture.height);
     this.scale.y = scale;
     this.scale.x = scale;
-    const filter = new GradientFilter([234, 96, 96], [113, 23, 234]);
+    const filter = new GradientFilter([53, 255, 105], [68, 204, 255]);
     this.filters = [filter];
   }
 }
