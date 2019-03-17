@@ -19,7 +19,7 @@ void main(){
 	vec4 mixCol = mix(color2, color1, vFilterCoord.y);
 	vec4 fg = texture2D(uSampler, vTextureCoord);
 	
-	gl_FragColor = mix(fg, mixCol, 0.5);
+	gl_FragColor = mix(fg, mixCol, 0.8);
 }
 `);
   }
