@@ -1,11 +1,11 @@
 import PIXI = require('pixi.js');
 import Container = PIXI.Container;
+import WebGLRenderer = PIXI.WebGLRenderer;
 import {AssetUtil} from './asset/asset-util';
 import {MobileBackground} from './components/background/mobile-background';
 import {LogoText} from './components/logo-text';
 import {DesktopBackground} from './components/background/desktop-background';
 import {Helper} from './util/helper';
-import WebGLRenderer = PIXI.WebGLRenderer;
 
 export let canvasWidth: number;
 export let canvasHeight: number;
@@ -35,6 +35,8 @@ export class Main {
     ]).then(() => {
       this.makeStage();
       this.renderer = PIXI.autoDetectRenderer();
+      this.renderer.view.style.touchAction = 'auto';
+      this.renderer.plugins.interaction.autoPreventDefault = false;
       PIXI.ticker.shared.add((time) => {
         this.update(time);
       });

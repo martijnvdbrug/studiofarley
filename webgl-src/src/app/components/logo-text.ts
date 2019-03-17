@@ -23,9 +23,8 @@ export class LogoText extends PIXI.Text {
     this.buttonMode = true;
     this
         .on('mousedown', this.glitchOn)
-        .on('touchstart', this.glitchOn)
+        .on('touchstart', this.glitch)
         .on('mouseup', this.glitchOff)
-        .on('touchend', this.glitchOff)
         .on('mouseover', this.glitch);
   }
 
@@ -33,7 +32,7 @@ export class LogoText extends PIXI.Text {
     this.glitchOn();
     setTimeout(() => {
         this.glitchOff()
-    }, 200);
+    }, 300);
   }
 
   glitchOn() {
