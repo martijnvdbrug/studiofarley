@@ -1,6 +1,6 @@
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     // entry: ['webpack/hot/dev-server' , './src/index.ts'],
     entry: ['./src/index.ts'],
     output: {
@@ -15,10 +15,6 @@ module.exports = {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
-            },
-            {
-                test: /\.frag$/,
-                loader: 'raw-loader'
             }
         ]
     }
